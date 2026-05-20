@@ -1,0 +1,401 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+    <meta charset="UTF-8">
+
+    <meta name="viewport"
+          content="width=device-width, initial-scale=1.0">
+
+    <title>
+        ROYAL LIFE ACE INVENTORY
+    </title>
+
+    <link rel="stylesheet"
+          href="style.css">
+
+</head>
+
+<body>
+
+<!-- LOGIN -->
+
+<div id="loginScreen"
+     class="centered">
+
+    <div class="card">
+
+        <img src="logo.png"
+             class="logo">
+
+        <h1>
+            ROYAL LIFE
+        </h1>
+
+        <h2>
+            ACE Inventory System
+        </h2>
+
+        <input id="username"
+               placeholder="Username">
+
+        <input id="password"
+               type="password"
+               placeholder="Password">
+
+        <button onclick="login()">
+            Login
+        </button>
+
+    </div>
+
+</div>
+
+<!-- DASHBOARD -->
+
+<div id="dashboard"
+     style="display:none;">
+
+    <!-- SIDEBAR -->
+
+    <div class="sidebar">
+
+        <h2>
+            📚 ACE System
+        </h2>
+
+        <button onclick="showSection('pace')">
+            📘 PACE Inventory
+        </button>
+
+        <button onclick="showSection('scorekeys')">
+            🗝️ Score Keys
+        </button>
+
+        <button onclick="showSection('add')">
+            ➕ Add Inventory
+        </button>
+
+        <button onclick="logout()">
+            🚪 Logout
+        </button>
+
+    </div>
+
+    <!-- MAIN -->
+
+    <div class="main">
+
+        <!-- PACE -->
+
+        <div id="paceSection">
+        
+        <!-- SEARCH + FILTERS -->
+
+<div class="filters">
+
+    <!-- SEARCH -->
+
+    <input
+        id="searchInput"
+        placeholder="Search PACE or Subject"
+        onkeyup="loadBooks()"
+    >
+
+    <!-- GRADE FILTER -->
+
+    <select
+        id="gradeFilter"
+        onchange="loadBooks()"
+    >
+
+        <option value="">
+            All Grades
+        </option>
+
+        <option value="Grade 1">Grade 1</option>
+        <option value="Grade 2">Grade 2</option>
+        <option value="Grade 3">Grade 3</option>
+        <option value="Grade 4">Grade 4</option>
+        <option value="Grade 5">Grade 5</option>
+        <option value="Grade 6">Grade 6</option>
+        <option value="Grade 7">Grade 7</option>
+        <option value="Grade 8">Grade 8</option>
+        <option value="Grade 9">Grade 9</option>
+        <option value="Grade 10">Grade 10</option>
+        <option value="Grade 11">Grade 11</option>
+        <option value="Grade 12">Grade 12</option>
+
+    </select>
+
+    <!-- SUBJECT FILTER -->
+
+    <select
+        id="subjectFilter"
+        onchange="loadBooks()"
+    >
+
+        <option value="">
+            All Subjects
+        </option>
+
+        <option value="Math">Math</option>
+        <option value="English">English</option>
+        <option value="Science">Science</option>
+        <option value="Social Studies">Social Studies</option>
+        <option value="Word Building">Word Building</option>
+        <option value="Literature">Literature</option>
+        <option value="Biology">Biology</option>
+        <option value="Chemistry">Chemistry</option>
+        <option value="Physics">Physics</option>
+
+    </select>
+
+    <!-- LOW STOCK -->
+
+    <label class="lowStockLabel">
+
+        <input
+            type="checkbox"
+            id="lowStockOnly"
+            onchange="loadBooks()"
+        >
+
+        Low Stock Only
+
+    </label>
+
+</div>
+
+            <h2>
+                📘 PACE Inventory
+            </h2>
+
+            <input id="borrower"
+                   placeholder="Student Name">
+
+            <ul id="bookList"></ul>
+
+        </div>
+
+        <!-- SCORE KEYS -->
+
+        <div id="scorekeysSection"
+             style="display:none;">
+
+            <h2>
+                🗝️ Score Keys
+            </h2>
+
+            <div class="warning">
+
+                ⚠️ Restricted Staff Materials
+
+            </div>
+
+            <ul id="scoreKeyList"></ul>
+
+        </div>
+
+        <!-- ADD -->
+
+        <div id="addSection"
+             style="display:none;">
+
+            <h2>
+                ➕ Add Inventory
+            </h2>
+
+            <!-- TYPE -->
+
+            <select id="materialType">
+
+                <option value="PACE">
+                    PACE
+                </option>
+
+                <option value="SCORE_KEY">
+                    SCORE KEY
+                </option>
+
+            </select>
+
+            <!-- SUBJECT -->
+
+           <select id="subject">
+
+    <!-- CORE SUBJECTS -->
+
+    <option value="Math">
+        Math
+    </option>
+
+    <option value="English">
+        English
+    </option>
+
+    <option value="Science">
+        Science
+    </option>
+
+    <option value="Social Studies">
+        Social Studies
+    </option>
+
+    <option value="Word Building">
+        Word Building
+    </option>
+
+    <option value="Literature">
+        Literature
+    </option>
+
+    <!-- GENERAL LEVEL ELECTIVES -->
+
+    <option value="Art">
+        Art
+    </option>
+
+    <option value="Music">
+        Music
+    </option>
+
+    <option value="Physical Education">
+        Physical Education
+    </option>
+
+    <option value="Home Economics">
+        Home Economics
+    </option>
+
+    <option value="Health">
+        Health
+    </option>
+
+    <option value="Computer Studies">
+        Computer Studies
+    </option>
+
+    <option value="Agriculture">
+        Agriculture
+    </option>
+
+    <option value="Business Studies">
+        Business Studies
+    </option>
+
+    <!-- INTERMEDIATE LEVEL -->
+
+    <option value="Biology">
+        Biology
+    </option>
+
+    <option value="Chemistry">
+        Chemistry
+    </option>
+
+    <option value="Physics">
+        Physics
+    </option>
+
+    <option value="Accounting">
+        Accounting
+    </option>
+
+    <option value="Economics">
+        Economics
+    </option>
+
+    <option value="Geography">
+        Geography
+    </option>
+
+    <option value="Computer Science">
+        Computer Science
+    </option>
+
+    <!-- ADVANCED LEVEL -->
+
+    <option value="Advanced Math">
+        Advanced Math
+    </option>
+
+    <option value="Advanced Physics">
+        Advanced Physics
+    </option>
+
+    <option value="Advanced Chemistry">
+        Advanced Chemistry
+    </option>
+
+    <option value="Advanced Biology">
+        Advanced Biology
+    </option>
+
+    <option value="Advanced Literature">
+        Advanced Literature
+    </option>
+
+    <option value="Advanced Economics">
+        Advanced Economics
+    </option>
+
+</select>
+
+            <!-- PACE NUMBER -->
+
+            <input id="paceNumber"
+                   placeholder="PACE Number">
+
+            <!-- GRADE -->
+
+            <select id="grade">
+
+    <option value="Grade 1">Grade 1</option>
+    <option value="Grade 2">Grade 2</option>
+    <option value="Grade 3">Grade 3</option>
+    <option value="Grade 4">Grade 4</option>
+    <option value="Grade 5">Grade 5</option>
+    <option value="Grade 6">Grade 6</option>
+    <option value="Grade 7">Grade 7</option>
+    <option value="Grade 8">Grade 8</option>
+    <option value="Grade 9">Grade 9</option>
+    <option value="Grade 10">Grade 10</option>
+    <option value="Grade 11">Grade 11</option>
+    <option value="Grade 12">Grade 12</option>
+
+</select>
+
+            <!-- QUANTITY -->
+
+            <input id="quantity"
+                   type="number"
+                   placeholder="Quantity">
+
+            <!-- BARCODE -->
+
+            <h3>
+                🔍 USB Barcode Scanner
+            </h3>
+
+            <input id="barcodeInput"
+                   placeholder="Scan barcode"
+                   onkeypress="handleBarcode(event)">
+
+            <!-- BUTTON -->
+
+            <button onclick="addBook()">
+                Add Inventory
+            </button>
+
+        </div>
+
+    </div>
+
+</div>
+
+<script src="script.js"></script>
+
+</body>
+</html>

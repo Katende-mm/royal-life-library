@@ -1,0 +1,130 @@
+body {
+    margin: 0;
+    font-family: Arial, sans-serif;
+    background: #0f172a;
+    color: white;
+}
+
+/* LOGIN SCREEN */
+.centered {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+}
+
+/* CARD */
+.card {
+    background: #1e293b;
+    padding: 30px;
+    border-radius: 15px;
+    text-align: center;
+    width: 320px;
+    box-shadow: 0 0 15px rgba(0,0,0,0.4);
+}
+
+/* LOGO */
+.logo {
+    width: 100px;
+    display: block;
+    margin: 0 auto 14px;
+    border-radius: 12px;
+    box-shadow: 0 0 10px gold;
+}
+
+/* INPUTS */
+input,
+select {
+    width: 90%;
+    padding: 10px;
+    margin: 10px 0;
+    border: none;
+    border-radius: 5px;
+}
+
+/* BUTTONS */
+button {
+    padding: 10px;
+    margin-top: 10px;
+    cursor: pointer;
+    background: gold;
+    border: none;
+    border-radius: 5px;
+    font-weight: bold;
+}
+
+/* DASHBOARD */
+.sidebar {
+    width: 220px;
+    height: 100vh;
+    background: #020617;
+    position: fixed;
+    padding: 20px;
+}
+
+.sidebar button {
+    display: block;
+    width: 100%;
+    margin: 10px 0;
+}
+
+.main {
+    margin-left: 240px;
+    padding: 20px;
+}
+
+/* SCANNER */
+#scanner {
+    width: 320px;
+    height: 220px;
+    border: 2px solid white;
+    margin-top: 10px;
+}
+
+/* LISTS */
+ul {
+    list-style: none;
+    padding: 0;
+}
+
+li {
+    background: #1e293b;
+    padding: 15px;
+    margin: 10px 0;
+    border-radius: 10px;
+}
+
+/* WARNING */
+.warning {
+    background: darkred;
+    padding: 10px;
+    border-radius: 5px;
+    margin-bottom: 15px;
+}
+
+/* FILTERS */
+
+.filters {
+    background: #1e293b;
+    padding: 15px;
+    border-radius: 10px;
+    margin-bottom: 20px;
+}
+
+.filters input,
+.filters select {
+    margin: 5px;
+}
+
+.lowStockLabel {
+    display: inline-block;
+    margin-left: 10px;
+}
+
+/* LOW STOCK WARNING */
+
+.lowStockWarning {
+    color: red;
+    font-weight: bold;
+    margin-top: 8px;
+}
