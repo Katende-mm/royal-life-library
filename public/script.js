@@ -10,7 +10,7 @@ function login() {
     const pass =
         document.getElementById("password").value;
 
-    if (user === "admin" && pass === "1234") {
+    if (user === "Admin" && pass === "ykspj83965bl") {
 
         document.getElementById(
             "loginScreen"
